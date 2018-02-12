@@ -14,9 +14,9 @@ export const Reducer = (state = {price:0,count:0,total:0}, action) => {
   switch(action.type) {
     case "INCREMENT":
       return {
-        count: state.count + action.amount,
+        count: state.count + action.count,
         price: action.price,
-        total: action.price * (state.count + action.amount)
+        total: action.price * (state.count + action.count)
       }
     default:
       return state
@@ -24,10 +24,18 @@ export const Reducer = (state = {price:0,count:0,total:0}, action) => {
 }
 
 // actionCreator & action
-export const addAction = (amount) => {
+export const addActionCreate = () => {
   return {
     type:"INCREMENT",
     price:100,
-    amount:1
+    count:1
+  }
+}
+
+export const removeActionCreate = () => {
+  return {
+    type:"INCREMENT",
+    price:100,
+    count:-1
   }
 }
